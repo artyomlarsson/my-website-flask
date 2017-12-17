@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {%- block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/dist/css/bootstrap.min.css')}}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/font-awesome/css/font-awesome.min.css')}}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer-white.css')}}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}"/>
+    <title>{% block title %}NO_TITLE{% endblock %} - Artyom's Blog</title>
+    {%- endblock %}
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ url_for('index') }}">
+                A Blog
+            </a>
+        </div>
+        <div id="navbar1" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="#">#About</a></li>
+                <li><a href="#">#Contact</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">#Action</a></li>
+                        <li><a href="#">#Another action</a></li>
+                        <li><a href="#">#Something else here</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">Nav header</li>
+                        <li><a href="#">#Separated link</a></li>
+                        <li><a href="#">#One more separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {%- if user %}
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false"> Welcome, {{ user.login if user.name == 'Not set' else user.name }} <span
+                            class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ url_for('index') + 'profile/' + user.login }}">My profile</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{{ url_for('index') + 'edit' }}">Edit profile</a></li>
+                        <li><a href="{{ url_for('index') + 'settings' }}">Settings</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{{ url_for('index') + 'logout' }}">Logout</a></li>
+                    </ul>
+                </li>
+                {%- else %}
+                <li class="dropdown">
+                    <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign Up<strong
+                            class="caret"></strong></a>
+                    <div id="navbar-form-sign-up" class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+                        <form action="{{ url_for('sign_up') }}" method="POST" accept-charset="UTF-8">
+                            <h4 class="text-center to-top">Sign up</h4>
+                            <small id="login-err" class="text-danger"></small>
+                            <input name="login"
+                                   class="dropdown-input bottom-away"
+                                   placeholder="Login"
+                                   size="30"/>
+
+                            <small id="email-err" class="text-danger"></small>
+                            <input name="email"
+                                   type="email"
+                                   class="dropdown-input bottom-away"
+                                   placeholder="Email"
+                                   size="30"/>
+
+                            <small id="name-err" class="text-danger"></small>
+                            <input name="name"
+                                   class="dropdown-input bottom-away"
+                                   placeholder="Your name(optional)"
+                                   size="30"/>
+
+                            <small id="surname-err" class="text-danger"></small>
+                            <input name="surname"
+                                   class="dropdown-input bottom-away"
+                                   placeholder="Your surname(optional)"
+                                   size="30"/>
+
+                            <div class="form-group">
+                              <select class="dropdown-input select form-control" name="gender">
+                                <option value="Not set">Select gender</option>
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                              </select>
+                            </div>
+
+                            <small id="pwd-err" class="text-danger"></small>
+                            <input name="pwd"
+                                   type="password"
+                                   class="dropdown-input bottom-away"
+                                   placeholder="Password"
+                                   size="30"/>
+
+                            <small id="pwd-confirm-err" class="text-danger"></small>
+                            <input name="pwd-confirm"
+                                   type="password"
+                                   class="dropdown-input last"
+                                   placeholder="Password confirm"
+                                   size="30"/>
+                            <input class="btn btn-success"
+                                   style="clear: left; width: 100%; height: 32px; font-size: 13px; margin-bottom: 10px" type="submit"
+                                   name="sign_in_submit" value="Sign Up"/>
+                        </form>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong
+                            class="caret"></strong></a>
+                    <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+                        <form id="navbar-form-sign-in" action="{{ url_for('sign_in') }}" method="POST" accept-charset="UTF-8">
+                            <h4 class="text-center to-top">Sign in</h4>
+                            <input name="login_email"
+                                   class="dropdown-input bottom-away"
+                                   placeholder="Login or email"
+                                   size="30"/>
+                            <input type="password" name="pwd"
+                                   class="dropdown-input last"
+                                   placeholder="Password"
+                                   size="30"/>
+                            <input class="btn btn-primary"
+                                   style="clear: left; width: 100%; height: 32px; font-size: 13px; margin-bottom: 10px" type="submit"
+                                   name="sign_in_submit" value="Sign In"/>
+                        </form>
+                    </div>
+                </li>
+                {%- endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="content">
+    {%- block content %}NO_CONTENT{% endblock %}
+</div>
+
+<br>
+<footer id="footerWhite">
+    {%- block footer %}
+    <div class="container">
+        <ul>
+            <li><a href="#">About me</a></li>
+            <li><a href="#">Contact me</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Meaningless Reference</a></li>
+        </ul>
+        <p class="footer-copyright">© 2017 Artyom Larsson<br>Based on <a
+                href="https://github.com/pallets/flask">Flask</a> framework</p>
+    </div>
+    <div class="footer-social">
+        <a href="https://t.me/larsson_the" class="social-icons"><i class="fa fa-paper-plane"></i></a>
+        <a href="https://github.com/artyomlarsson" class="social-icons"><i class="fa fa-github"></i></a>
+        <a href="https://twitter.com/artyomlarsson" class="social-icons"><i class="fa fa-twitter"></i></a>
+    </div>
+    {%- endblock %}
+</footer>
+
+{%- block scripts %}
+<script src="{{ url_for('static', filename='vendor/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+{%- if not user %}
+<script src="{{ url_for('static', filename='js/navbar-auth.js') }}"></script>
+{%- endif %}
+{%- endblock %}
+</body>
+</html>

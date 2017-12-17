@@ -1,0 +1,84 @@
+#footerWhite {
+    padding-top:32px;
+    background-color: #eee;
+}
+
+#footerWhite .container{
+    text-align: center;
+}
+
+#footerWhite .footer-copyright{
+    margin-bottom: 35px;
+    text-align: center;
+    color: #777;
+}
+
+#footerWhite ul{
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 18px;
+}
+
+#footerWhite a{
+    color: #282b2d;
+    font-size: 18px;
+}
+
+#footerWhite li{
+    display: inline-block;
+    margin: 0px 15px;
+    line-height: 2;
+}
+
+#footerWhite .footer-social{
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+#footerWhite .fa{
+    font-size: 36px;
+    margin-right: 15px;
+    margin-left: 20px;
+    background-color: white;
+    color: #d0d0d0;
+    border-radius: 51%;
+    padding: 10px;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    line-height: 43px;
+    text-decoration: none;
+    transition:color 0.2s;
+}
+
+#footerWhite .fa-paper-plane {
+    padding-left: 1px;
+    padding-top: 11px;
+    font-size: 28px;
+    line-height: 42px;
+}
+
+#footerWhite .fa-paper-plane:hover {
+   color: #0088cc;
+}
+
+#footerWhite .fa-paper-plane:focus {
+    color: #0088cc;
+}
+
+#footerWhite .fa-github:hover {
+    color:#24292e;
+}
+
+#footerWhite .fa-github:focus {
+    color:#24292e;
+}
+
+#footerWhite .fa-twitter:hover {
+    color: #00aced;
+
+}
+
+#footerWhite .fa-twitter:focus {
+    color:#00aced;
+}

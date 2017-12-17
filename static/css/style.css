@@ -1,0 +1,44 @@
+.navbar {
+    border-radius: 0px;
+}
+
+.to-top {
+    margin-top: 2px;
+}
+
+.bottom-away {
+    margin-bottom: 15px;
+}
+
+.border-error {
+    border-color: #cc0101!important;
+}
+.border-success {
+    border-color: #08771b!important;
+}
+.border-warning {
+    border-color: #ffb94f!important;
+}
+
+select.select {
+    height: 32px;
+}
+
+.last {
+    margin-bottom: 20px;
+}
+
+#content {
+    min-height: 600px;
+    position:relative;
+}
+
+.dropdown-input {
+    border-radius: 2px;
+    border: 1px solid #adadad;
+    padding-left: 5px;
+}
+
+.dropdown-input::placeholder {
+    padding-left: 15px;
+}
