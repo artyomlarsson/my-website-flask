@@ -74,11 +74,11 @@
     color:#24292e;
 }
 
-#footerWhite .fa-twitter:hover {
-    color: #00aced;
+#footerWhite .fa-instagram:hover {
+    color: #003569;
 
 }
 
-#footerWhite .fa-twitter:focus {
-    color:#00aced;
+#footerWhite .fa-instagram:focus {
+    color:#003569;
 }
